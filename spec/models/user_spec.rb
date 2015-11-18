@@ -16,6 +16,12 @@ RSpec.describe User do
       user.should_not be_valid
     end
 
+    it 'duplicate email' do
+      exist_user = create(:user, email: user.email, name: 'John')
+      user.save
+      user.should_not be_valid
+    end
+
     it 'has no name' do
       user.name = ''
       user.save

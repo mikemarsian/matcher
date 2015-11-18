@@ -9,7 +9,7 @@ FactoryGirl.define do
 
     factory :worker, class: Worker do
       after(:create) do |worker, evaluator|
-        worker.skills += create_list(:skill, 3)
+        worker.skills = create_list(:skill, 3)
       end
     end
 
