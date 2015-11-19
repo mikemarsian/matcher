@@ -23,6 +23,14 @@ RSpec.describe Skill do
 
       skill.should_not be_valid
     end
+
+    it 'duplicate keyword' do
+      exist_skill = create(:skill)
+      skill.keyword = exist_skill.keyword
+      skill.save
+
+      skill.should_not be_valid
+    end
   end
 
   context 'valid params' do

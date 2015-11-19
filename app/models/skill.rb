@@ -5,5 +5,5 @@ class Skill
 
   has_many :in, :workers, type: 'HAS_SKILLS', unique: true
 
-  validates :keyword, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :keyword, presence: true, length: { minimum: 2, maximum: 30 }, uniqueness: true
 end

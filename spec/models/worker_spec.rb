@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Worker do
-  let(:worker) { create(:worker) }
+  let(:worker) { create(:worker_with_skills) }
   let(:skill) { create(:skill, keyword: 'singing in a shower')}
   context 'invalid params' do
     it 'should not allow adding existing skill to worker' do
