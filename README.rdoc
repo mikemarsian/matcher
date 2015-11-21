@@ -1,6 +1,7 @@
 == README
 
 Start test db: rake neo4j:start[test]
+
 Start dev db: rake neo4j:start[development]
 
 Seed db: rake db:seed
