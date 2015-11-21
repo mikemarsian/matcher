@@ -6,4 +6,6 @@ class Skill
   has_many :in, :workers, type: 'HAS_SKILLS', unique: true
 
   validates :keyword, presence: true, length: { minimum: 2, maximum: 30 }, uniqueness: true
+
+  scope :default_order, -> { order(keyword: :asc) }
 end

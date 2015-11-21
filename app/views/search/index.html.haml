@@ -1,0 +1,21 @@
+%h1 Search Matching Workers
+
+= render 'form'
+
+- if(@search.skills.present?)
+  %h3= "Found #{@found_workers.count} matching workers"
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+      %th
+
+  %tbody
+    - @found_workers.each do |worker|
+      %tr
+        %td= "#{worker.name}"
+        %td= link_to 'Show', worker_path(worker)
+%br
+

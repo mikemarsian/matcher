@@ -3,6 +3,8 @@
 Start test db: rake neo4j:start[test]
 Start dev db: rake neo4j:start[development]
 
+Seed db: rake db:seed
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

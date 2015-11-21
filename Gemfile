@@ -14,9 +14,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 gem 'neo4j', '~> 5.0.0'
+gem 'haml-rails', '~> 0.9'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+#gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -36,6 +37,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'database_cleaner', '~> 1.5.1'
   gem 'pry-rails'
+  gem 'rails_layout'
 end
 
 group :development do

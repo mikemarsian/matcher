@@ -1,0 +1,19 @@
+= form_for @worker do |f|
+  - if @worker.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@worker.errors.count, "error")} prohibited this worker from being saved:"
+      %ul
+        - @worker.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.label('Name:')
+  = f.text_field(:name)
+  = f.label('Email:')
+  = f.email_field(:email)
+  %br
+  %br
+  = f.label('Choose skills:')
+  %br
+  = f.select(:skills, options_for_select(skills_options, @worker.skill_keywords), {}, {multiple: true})
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,9 @@
+%h1 Worker
+%h4= "#{@worker.name} (#{@worker.email})"
+= "Skills: #{@worker.skills_string}"
+
+%br
+%br
+= link_to 'Edit', edit_worker_path(@worker)
+\|
+= link_to 'Back', workers_path

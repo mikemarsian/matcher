@@ -6,4 +6,5 @@ class User
 
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
   validates :name, presence: true
+  #validates :password, length: { minimum: 6 }, allow_nil: true
 end

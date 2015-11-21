@@ -3,6 +3,47 @@ require 'rails_helper'
 RSpec.describe User do
   let(:user) { build(:user) }
 
+  # describe "password validations" do
+  #   context "on a new user" do
+  #     it "should not be valid without a password" do
+  #       user = User.new password: nil, password_confirmation: nil
+  #       user.should_not be_valid
+  #     end
+  #
+  #     it "should be not be valid with a short password" do
+  #       user = User.new password: 'short', password_confirmation: 'short'
+  #       user.should_not be_valid
+  #     end
+  #
+  #     it "should not be valid with a confirmation mismatch" do
+  #       user = User.new password: 'short', password_confirmation: 'long'
+  #       user.should_not be_valid
+  #     end
+  #   end
+  #
+  #   context "on an existing user", focus:true do
+  #     let(:user) do
+  #       u = User.create(name: 'Joe', email: 'joe@gmail.com', password: 'password', password_confirmation: 'password')
+  #       binding.pry
+  #       User.find(u.id)
+  #     end
+  #
+  #     it "should be valid with no changes" do
+  #       user.should be_valid
+  #     end
+  #
+  #     it "should not be valid with an empty password" do
+  #       user.password = user.password_confirmation = ""
+  #       user.should_not be_valid
+  #     end
+  #
+  #     it "should be valid with a new (valid) password" do
+  #       user.password = user.password_confirmation = "new password"
+  #       user.should be_valid
+  #     end
+  #   end
+  # end
+
   context 'invalid params' do
     it 'has no email' do
       user.email = ''
@@ -17,7 +58,7 @@ RSpec.describe User do
     end
 
     it 'duplicate email' do
-      exist_user = create(:user, email: user.email, name: 'John')
+      create(:user, email: user.email, name: 'John')
       user.save
       user.should_not be_valid
     end
@@ -45,4 +86,5 @@ RSpec.describe User do
       user.name.should == name
     end
   end
+
 end
