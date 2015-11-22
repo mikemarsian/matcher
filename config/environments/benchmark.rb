@@ -77,5 +77,7 @@ Rails.application.configure do
 
   # we use test DB for benchmark
   config.neo4j.session_type = :server_db
-  config.neo4j.session_path = 'http://localhost:7475'
+  port = ENV['CI'] ? 7474 : 7475
+  config.neo4j.session_path = "http://localhost:#{port}"
+  config.neo4j.session_options = {basic_auth: { username: 'neo4j', password: 'neo4j'}} if ENV['CI']
 end

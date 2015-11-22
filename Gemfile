@@ -28,11 +28,6 @@ gem 'haml-rails', '~> 0.9'
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'guard-rspec'
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
   gem 'better_errors'
   gem 'rails_layout'
   gem 'spring'
@@ -41,6 +36,15 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'simplecov', :require => false
 end
 
 group :benchmark do

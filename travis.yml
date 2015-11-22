@@ -1,0 +1,14 @@
+language: ruby
+
+rvm:
+  - 2.2.2
+
+env:
+- CI=1
+
+services:
+  - neo4j
+
+before_script:
+  - sleep 5
+

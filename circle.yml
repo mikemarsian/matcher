@@ -1,0 +1,11 @@
+machine:
+  environment:
+    COV: 1
+  services:
+    - neo4j
+
+test:
+   post:
+    - cp -r coverage $CIRCLE_ARTIFACTS
+    - rake test:benchmark TEST=test/performance/search_test.rb
+    - cp -r tmp/performance $CIRCLE_ARTIFACTS

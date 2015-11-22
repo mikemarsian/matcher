@@ -45,6 +45,5 @@ module Matcher
     config.neo4j.session_type = :server_db
     config.neo4j.session_path = 'http://localhost:7474'
     config.neo4j.session_options = {basic_auth: { username: 'neo4j', password: 'root'}}
-    config.neo4j.storage_path = "#{config.root}/db/neo4j-#{Rails.env}"
   end
 end
