@@ -66,8 +66,7 @@ class WorkersController < ApplicationController
         # convert to set to ignore order of skills
         if skills.to_set != @worker.skills.to_set
           Rails.logger.info("Updating #{@worker.name}'s' skills")
-          # this won't be efficient when dealing with many skills, since we basically remove all skills and add them back
-          # should be refactored to only add/remove those skills that changed
+          # TODO: should be refactored to only add/remove those skills that changed
           @worker.skills = skills
         end
       end

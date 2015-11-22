@@ -6,6 +6,16 @@ Start dev db: rake neo4j:start[development]
 
 Seed db: rake db:seed
 
+Run specs: rspec spec
 
-Please feel free to use a different markup language if you do not plan to run
+Run benchmark test: rake test:benchmark
+To run benchmark test for searhc only: rake test:benchmark TEST=test/performance/search_test.rb
+To monitor what the benchmark log: tail -f ./log/benchmark.log
+
+When I ran the search benchmark test for 1000 workers and 100 skills, I got:
+SearchTest#test_search (235 ms warmup)
+Found 2 matching workers
+           wall_time: 254 ms
+
+
 <tt>rake doc:app</tt>.
