@@ -38,7 +38,7 @@ RSpec.configure do |config|
   DatabaseCleaner[:neo4j, connection: {type: Rails.configuration.neo4j.session_type, path: Rails.configuration.neo4j.session_path}]
   DatabaseCleaner.strategy = :truncation
   config.before(:each) do
-    DatabaseCleaner.start
+    DatabaseCleaner.clean
   end
 
   config.after(:each) do

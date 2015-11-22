@@ -3,13 +3,13 @@ require 'rails/performance_test_help'
 
 class SearchTest < ActionDispatch::PerformanceTest
   setup do
-    number_of_skills = 10
-    number_of_workers = 100
+    number_of_skills = 100
+    number_of_workers = 1000
     number_of_skills_to_match = 3
 
-    DatabaseCleaner.start
+    DatabaseCleaner.clean
     @skills = number_of_skills.times.collect {|i| Skill.create(keyword: "#{Faker::Company.profession} #{i}") }
-    @workers = number_of_workers.times.collect {|i| Worker.create(email: "#{i}#{Faker::Internet.email}", name: "#{Faker::Internet.name}")}
+    @workers = number_of_workers.times.collect {|i| Worker.create(email: "#{i}#{Faker::Internet.email}", name: "#{Faker::Name.name}")}
     @workers.each do |w|
       # assign random number of skills per worker
       skills_count = Random.rand(10)
@@ -27,6 +27,5 @@ class SearchTest < ActionDispatch::PerformanceTest
   teardown do
     # print the number of workers found
     puts "#{response.body.scan(/<h3>([^<>]*)<\/h3>/imu).flatten.first}"
-    DatabaseCleaner.clean
   end
 end
