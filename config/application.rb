@@ -7,9 +7,8 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "neo4j/railtie"
-# need active_record for CircleCI to work
-require "active_record/railtie"
-#require "sprockets/railtie"
+# require "active_record/railtie"
+# require "sprockets/railtie"
 # require "active_job/railtie"
 # require "rails/test_unit/railtie"
 
