@@ -15,4 +15,3 @@ public/export
 coverage
 .project
 /db/neo4j
-/bin
