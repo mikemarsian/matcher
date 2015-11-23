@@ -1,6 +1,6 @@
 == README
 
-First time run:
+first time run:
 ==============
 git clone git@github.com:mikemarsian/matcher.git
 bundle
@@ -9,20 +9,23 @@ rake neo4j:install[community-latest,test]
 rake neo4j:config[test,7475]
 Seed db: rake db:seed
 
-Regular run:
+run:
 ===========
-Start test db: rake neo4j:start[test]
-Start dev db: rake neo4j:start[development]
-Run specs: rspec spec
-Run benchmark test: rake test:benchmark
+start dev db: rake neo4j:start[development]
+start server: rails s
 
-To run benchmark test for search only: rake test:benchmark TEST=test/performance/search_test.rb
-To monitor the benchmark log: tail -f ./log/benchmark.log
+spec:
+======
+run specs: rspec spec
+run specs with coverage (check coverage dir in root folder): COV=1 rspec spec
 
-When I ran the search benchmark test for 1000 workers and 100 skills, I got:
-SearchTest#test_search (235 ms warmup)
-Found 2 matching workers
-           wall_time: 254 ms
+benchmark
+=========
+run benchmark test: rake test:benchmark
+run benchmark test for search only: rake test:benchmark TEST=test/performance/search_test.rb
+monitor the benchmark log: tail -f ./log/benchmark.log
+
+
 
 
 <tt>rake doc:app</tt>.
