@@ -41,7 +41,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.neo4j.session_type = :server_db
-  port = ENV['CI'] ? 7474 : 7475
-  config.neo4j.session_path = "http://localhost:#{port}"
-  config.neo4j.session_options = {basic_auth: { username: 'neo4j', password: 'neo4j'}} if ENV['CI']
+  config.neo4j.session_path = "http://localhost:7475"
 end
