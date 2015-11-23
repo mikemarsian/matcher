@@ -3,8 +3,8 @@ require 'rails/performance_test_help'
 
 class SearchTest < ActionDispatch::PerformanceTest
   setup do
-    number_of_skills = 30
-    number_of_workers = 300
+    number_of_skills = 10
+    number_of_workers = 100
     number_of_skills_to_match = 3
 
     DatabaseCleaner.clean

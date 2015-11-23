@@ -1,8 +1,15 @@
 machine:
+  pre:
+    - sudo sed -i "s|dbms.security.auth_enabled=true|dbms.security.auth_enabled=false|g" /etc/neo4j/neo4j-server.properties
+    - sudo sed -i "s|org.neo4j.server.webserver.port=7474|org.neo4j.server.webserver.port=7475|g" /etc/neo4j/neo4j-server.properties
   environment:
     COV: 1
   services:
     - neo4j
+
+database:
+  override:
+    - bundle exec rake db:create --trace
 
 test:
    post:
