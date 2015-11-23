@@ -2,26 +2,30 @@
 
 === first time run
 git clone git@github.com:mikemarsian/matcher.git
+
 bundle
+
 rake neo4j:install[community-latest,development]
+
 rake neo4j:install[community-latest,test]
+
 rake neo4j:config[test,7475]
+
 Seed db: rake db:seed
 
 === run
 start dev db: rake neo4j:start[development]
+
 start server: rails s
 
 === spec
 run specs: rspec spec
+
 run specs with coverage (check coverage dir in root folder): COV=1 rspec spec
 
 === benchmark
 run benchmark test: rake test:benchmark
+
 run benchmark test for search only: rake test:benchmark TEST=test/performance/search_test.rb
+
 monitor the benchmark log: tail -f ./log/benchmark.log
-
-
-
-
-<tt>rake doc:app</tt>.
