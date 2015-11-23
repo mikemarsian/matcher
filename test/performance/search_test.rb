@@ -9,16 +9,13 @@ class SearchTest < ActionDispatch::PerformanceTest
 
     DatabaseCleaner.clean
 
-    Neo4j::Transaction.run do
-      @skills = number_of_skills.times.collect {|i| Skill.create(keyword: "#{Faker::Company.profession} #{i}") }
-      @workers = number_of_workers.times.collect {|i| Worker.create(email: "#{i}#{Faker::Internet.email}", name: "#{Faker::Name.name}")}
-    end
-    Neo4j::Transaction.run do
-      @workers.each do |w|
+    # using transaction here could speed up the benchmark setup, but would require more memory
+    @skills = number_of_skills.times.collect {|i| Skill.create(keyword: "#{Faker::Company.profession} #{i}") }
+    @workers = number_of_workers.times.collect {|i| Worker.create(email: "#{i}#{Faker::Internet.email}", name: "#{Faker::Name.name}")}
+    @workers.each do |w|
       # assign random number of skills per worker
       skills_count = Random.rand(10)
       w.skills = @skills.sample(skills_count)
-      end
     end
     @skills_to_find = @skills.sample(number_of_skills_to_match).map(&:keyword)
   end
